@@ -68,12 +68,11 @@ export const paymentRouter = router({
           line_items,
         });
 
-        return { url: stripeSession.url + "DEGG" };
+        return { url: stripeSession.url };
       } catch (err) {
-        return { url: null + "HHHH" + err };
+        return { url: null };
       }
     }),
-
   pollOrderStatus: privateProcedure
     .input(z.object({ orderId: z.string() }))
     .query(async ({ input }) => {
